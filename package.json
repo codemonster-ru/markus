@@ -1,0 +1,41 @@
+{
+    "name": "@codemonster-ru/markus",
+    "type": "module",
+    "author": "Kirill Kolesnikov",
+    "version": "0.0.1",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/codemonster-ru/markus.git"
+    },
+    "description": "Markdown parser, converter MD <=> HTML",
+    "keywords": [],
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            },
+            "require": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.cjs"
+            }
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dev": "tsup playground/index.ts --watch",
+        "build": "tsup",
+        "watch": "node --watch dist/index.cjs"
+    },
+    "devDependencies": {
+        "@types/node": "^24.3.0",
+        "tsup": "8.5.0",
+        "typescript": "^5.9.2"
+    }
+}
