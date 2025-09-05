@@ -5,6 +5,18 @@ export default {
             replace: '<h1>$1</h1>',
         },
     },
+    h1Alt: {
+        md: {
+            search: /^(.+)\n=+\s*(?=\n$)/gm,
+            replace: '<h1>$1</h1>',
+        },
+    },
+    h2Alt: {
+        md: {
+            search: /^(.+)\n-+\s*(?=\n|$)/gm,
+            replace: '<h2>$1</h2>',
+        },
+    },
     h2: {
         md: {
             search: /^## (.*)$/gm,
