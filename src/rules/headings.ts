@@ -7,13 +7,13 @@ export default {
     },
     h1Alt: {
         md: {
-            search: /^(.+)\n=+\s*(?=\n$)/gm,
+            search: /^(.+)\n=+(?=\s*$)/gm,
             replace: '<h1>$1</h1>',
         },
     },
     h2Alt: {
         md: {
-            search: /^(.+)\n-+\s*(?=\n|$)/gm,
+            search: /^(.+)\n-+(?=\s*$)/gm,
             replace: '<h2>$1</h2>',
         },
     },
