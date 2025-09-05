@@ -9,3 +9,9 @@
 ##### Heading 5
 
 ###### Heading 6
+
+Heading 1
+=
+
+Heading 2
+-
