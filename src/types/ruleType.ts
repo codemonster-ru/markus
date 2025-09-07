@@ -1,7 +1,7 @@
 interface RuleType {
     md: {
         search: RegExp;
-        replace: string;
+        replace: string | ((...args: any[]) => string);
     };
 }
 
