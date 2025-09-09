@@ -1,4 +1,4 @@
-# Headers
+## Headers
 
 # Heading 1
 
@@ -12,7 +12,7 @@
 
 ###### Heading 6
 
-# Alt headers
+## Alt headers
 
 Heading 1
 =
@@ -20,16 +20,16 @@ Heading 1
 Heading 2
 -
 
-# Paragraph 
+## Paragraph 
 
 I am a paragraph
 
-# Line breaks
+## Line breaks
 
 This is the first line.  
 And this is the second line.
 
-# Emphasis
+## Emphasis
 
 Emphasis, aka italics, with *asterisks* or _underscores_.
 
@@ -39,7 +39,7 @@ Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
 
-# Lists
+## Lists
 
 1. First item
 2. Second item
@@ -84,3 +84,22 @@ Strikethrough uses two tildes. ~~Scratch this.~~
     - Indented item
     - Indented item
 - Fourth item
+
+## Blockquotes
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+>> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+>  *Everything* is going according to **plan**.
