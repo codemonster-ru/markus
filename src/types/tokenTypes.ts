@@ -8,6 +8,11 @@ interface TextNode extends NodeType {
     value: string;
 }
 
+interface BlockquoteNode extends NodeType {
+    type: 'blockquote';
+    children: NodeType[];
+}
+
 interface HeadingNode extends NodeType {
     type: 'heading';
     level: number;

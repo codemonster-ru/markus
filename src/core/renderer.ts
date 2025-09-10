@@ -18,6 +18,26 @@ export const render = (node: NodeType): string => {
         case 'text':
             const t = node as TextNode;
             return escapeHtml(t.value);
+        case 'softbreak':
+            return '\n';
+        case 'linebreak':
+            return '<br />\n';
+        case 'em_open':
+            return '<em>';
+        case 'em_close':
+            return '</em>';
+        case 'strong_open':
+            return '<strong>';
+        case 'strong_close':
+            return '</strong>';
+        case 'del_open':
+            return '<del>';
+        case 'del_close':
+            return '</del>';
+        case 'blockquote':
+            if (!('children' in node) || !node.children) return '';
+
+            return `<blockquote>${node.children.map(render).join('')}</blockquote>`;
         default:
             return '';
     }
