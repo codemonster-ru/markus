@@ -3,6 +3,9 @@ on:
     push:
         branches:
             - main
+permissions:
+    contents: read
+    id-token: write
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -10,15 +13,30 @@ jobs:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
               with:
-                  node-version: 20
+                  node-version: 24
                   registry-url: 'https://registry.npmjs.org'
-            - name: publish @codemonster-ru/markus
-              continue-on-error: true
+            - name: Pin npm
+              run: npm install --global npm@11.17.0
+            - name: Build and verify
               run: |
                   npm cache clear --force
                   npm ci
                   npm run build
                   npm audit signatures
+            - name: Publish @codemonster-ru/markus
+              shell: bash
+              run: |
+                  version=$(node -p 'require("./package.json").version')
+                  published=$(npm view @codemonster-ru/markus versions --json | node -e '
+                      const data = JSON.parse(require("node:fs").readFileSync(0, "utf8"));
+                      const versions = typeof data === "string" ? [data] : data;
+                      if (!Array.isArray(versions) || !versions.length || versions.some((value) => typeof value !== "string")) {
+                          throw new Error("Unexpected npm version list");
+                      }
+                      console.log(versions.includes(process.argv[1]));
+                  ' "$version")
+                  if [ "$published" = true ]; then
+                      echo "@codemonster-ru/markus@$version is already published."
+                      exit 0
+                  fi
                   npm publish --access public
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
